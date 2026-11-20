@@ -31,7 +31,7 @@
   feather.fillRect(0, 0, region.w, region.h);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = true, last = 0, time = 0, frame = 0;
-  const running = () => visible && !document.hidden && !reduced.matches && !document.body.classList.contains('paused');
+  const running = () => visible && !document.hidden && !reduced.matches;
   function render(now) {
     frame = 0;
     if (!running()) { last = 0; return; }
@@ -60,7 +60,6 @@
     if (photo.complete && photo.naturalWidth && running()) frame = requestAnimationFrame(render);
   }
   photo.addEventListener('load', sync);
-  document.querySelector('.motion-control').addEventListener('click', sync);
   document.addEventListener('visibilitychange', sync);
   reduced.addEventListener('change', sync);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(canvas);

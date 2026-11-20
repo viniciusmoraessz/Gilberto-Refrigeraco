@@ -1,9 +1,3 @@
-const motion = document.querySelector('.motion-control');
-motion.addEventListener('click', () => {
-  const paused = document.body.classList.toggle('paused');
-  motion.setAttribute('aria-pressed', String(paused));
-  motion.innerHTML = paused ? 'Retomar vento <span>▷</span>' : 'Pausar vento <span>Ⅱ</span>';
-});
 // Brazilian WhatsApp number, including country and area codes.
 const companyWhatsApp = '';
 const baseMessage = 'Olá, Gilberto! Vim pelo site e gostaria de solicitar um orçamento.';
